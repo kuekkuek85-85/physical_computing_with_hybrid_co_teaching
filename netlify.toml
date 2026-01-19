@@ -1,0 +1,27 @@
+# Netlify 배포 설정
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# 환경 변수
+[build.environment]
+  NODE_VERSION = "18"
+
+# Functions 설정
+[functions]
+  directory = "netlify/functions"
+  python_version = "3.11"
+
+# SPA 라우팅을 위한 리다이렉트 설정
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# CORS 헤더 설정 (API 호출을 위해)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
