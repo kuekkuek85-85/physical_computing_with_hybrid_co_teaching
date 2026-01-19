@@ -10,7 +10,6 @@
 # Functions 설정
 [functions]
   directory = "netlify/functions"
-  python_version = "3.11"
 
 # SPA 라우팅을 위한 리다이렉트 설정
 [[redirects]]
